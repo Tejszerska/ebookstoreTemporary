@@ -1,4 +1,4 @@
-package com.portfolio.ebookstore.model;
+package com.portfolio.ebookstore.model.enums;
 
 public enum Genre {
     FICTION,
