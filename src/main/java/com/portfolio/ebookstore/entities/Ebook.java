@@ -14,9 +14,9 @@ public class Ebook {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank
+//    @NotBlank
     private String title;
-    @NotBlank
+//    @NotBlank
     private String authors;
     private String publisher;
     private String imageName;
@@ -24,6 +24,6 @@ public class Ebook {
     @Enumerated(EnumType.STRING)
     private Genre genre;
     private Float sellingPrice;
-    @NotBlank
+//    @NotBlank
     private Float purchaseCost;
 }

@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link th:href="@{/bootstrap.css}" rel="stylesheet">
     <link th:href="@{/style.css}" rel="stylesheet">
-    <title>Welcome to The Ebook Store</title>
+    <title>Welcome to  EBOOKSTORE</title>
 </head>
 <body>
-
-<div th:insert="fragments/nav-bar::nav"></div>
+<div th:insert="~{fragments/nav-bar::nav}"></div>
 
 <div class="container">
     <h1>Ebook Store App</h1>
@@ -21,14 +20,14 @@
                 <div class="mx-auto" style="width: 18rem;">
 
                     <div class="card" style="width: 18rem;">
-                        <a th:href="@{/ebooks/details/__${ebook.id}__}">
+                        <a th:href="@{/ebookstore/details/__${ebook.id}__}">
                             <img th:src="@{/img/__${ebook.imageName}__}" width="80%" class="card-img-top"/>
                         </a>
                         <div class="card-body">
                             <h5 class="card-title" th:text="${ebook.title}">Ebook's title</h5>
-                            <p th:text="${ebook.sellingPrice}">Ebook's price</p>
+                            <p style="display: inline" th:text="${ebook.sellingPrice}">Ebook's price </p> <span> zł </span></br>
                             <a href="#" class="btn btn-primary">Add to cart</a>
-                            <a th:href="@{/ebooks/details/__${ebook.id}__}" class="btn btn-primary">Details</a>
+                            <a th:href="@{/ebookstore/details/__${ebook.id}__}" class="btn btn-primary">Details</a>
                         </div>
                     </div>
 
