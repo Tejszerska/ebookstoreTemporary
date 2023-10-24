@@ -21,13 +21,13 @@ public class EbookService {
     private final EbookRepository ebookRepository;
 
 
-    public List<EbookDto> getEbooks() {
+    public List<EbookDto> getEbookDtos() {
         return ebookRepository.findAll().stream()
                 .map(e -> new EbookDto(e.getId(), e.getTitle(), e.getAuthors(), e.getPublisher(), e.getImageName(), e.getDescription(), e.getGenre().toString(), e.getSellingPrice(), e.getPurchaseCost()))
                 .toList();
     }
 
-    public EbookDto getEbookById(Long ebookId) {
+    public EbookDto getEbookDtoById(Long ebookId) {
         Ebook ebook = ebookRepository.findById(ebookId).orElseThrow(() -> new IllegalArgumentException(ebookId + ": there is no ebook with that ID in the database."));
         return new EbookDto(ebook.getId(), ebook.getTitle(), ebook.getAuthors(), ebook.getPublisher(), ebook.getImageName(), ebook.getDescription(), ebook.getGenre().toString(), ebook.getSellingPrice(), ebook.getPurchaseCost());
     }
@@ -48,7 +48,7 @@ public class EbookService {
 
     }
 
-    private void coverUpload(MultipartFile file) {
+    public void coverUpload(MultipartFile file) {
         Path img = Paths.get("src/.../img");
 
         // Check if the uploads directory exists, create it if not

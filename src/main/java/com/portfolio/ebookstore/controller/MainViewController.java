@@ -22,7 +22,7 @@ private final EbookService ebookService;
 
     @GetMapping
     public String ebook(Model model){
-        List<EbookDto> ebooksFromDb = ebookService.getEbooks();
+        List<EbookDto> ebooksFromDb = ebookService.getEbookDtos();
         model.addAttribute("ebooks", ebooksFromDb);
         model.addAttribute("newEbook", new Ebook());
 //        ODKOMENTOWAĆ PO IMPLEMENTACJI WÓZKA
@@ -33,7 +33,7 @@ private final EbookService ebookService;
 
     @RequestMapping("/details/{ebookId}")
     public String ebookDetails (Model model, @PathVariable Long ebookId){
-        EbookDto ebookById = ebookService.getEbookById(ebookId);
+        EbookDto ebookById = ebookService.getEbookDtoById(ebookId);
         model.addAttribute("ebookById", ebookById);
 //        int cartSize = shoppingCart.getCartSize();
 //        model.addAttribute("cartSize", cartSize);

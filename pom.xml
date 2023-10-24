@@ -65,6 +65,19 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-params</artifactId>
+			<version>5.8.2</version> <!-- aktualna wersja może ulec zmianie -->
+			<scope>test</scope> <!-- scope test oznacza, że bibliotek będzie widoczna tylko w paczce z testami -->
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>3.22.0</version>
+			<scope>test</scope>
+		</dependency>
     </dependencies>
 
 	<build>
