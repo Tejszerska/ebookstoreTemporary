@@ -34,6 +34,7 @@ public class EbookService {
 
     public void addEbook(EbookDto ebookDto, MultipartFile file) {
         Ebook ebook = new Ebook();
+        try{
         ebook.setPurchaseCost(ebookDto.getPurchaseCost());
         ebook.setTitle(ebookDto.getTitle());
         ebook.setId(ebookDto.getId());
@@ -43,9 +44,12 @@ public class EbookService {
         ebook.setDescription(ebookDto.getDescription());
         ebook.setGenre(Genre.valueOf(ebookDto.getGenre()));
         ebook.setSellingPrice(ebookDto.getSellingPrice());
+        } catch (NullPointerException e){
+            log.error("One of the required values is null.");
+        }
+
         coverUpload(file);
         ebookRepository.save(ebook);
-
     }
 
     public void coverUpload(MultipartFile file) {

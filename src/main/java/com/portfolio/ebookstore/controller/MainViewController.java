@@ -24,7 +24,7 @@ private final EbookService ebookService;
     public String ebook(Model model){
         List<EbookDto> ebooksFromDb = ebookService.getEbookDtos();
         model.addAttribute("ebooks", ebooksFromDb);
-        model.addAttribute("newEbook", new Ebook());
+//        model.addAttribute("newEbook", new Ebook());  <- a co to? :D
 //        ODKOMENTOWAĆ PO IMPLEMENTACJI WÓZKA
 //        int cartSize = shoppingCart.getCartS+ize();
 //        model.addAttribute("cartSize", cartSize);

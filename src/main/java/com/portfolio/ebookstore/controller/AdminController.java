@@ -1,6 +1,8 @@
 package com.portfolio.ebookstore.controller;
 
+import com.portfolio.ebookstore.model.dto.OrderDto;
 import com.portfolio.ebookstore.service.EbookService;
+import com.portfolio.ebookstore.service.OrderService;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +24,17 @@ import java.util.List;
 public class AdminController {
 
     private final EbookService ebookService;
+    private final OrderService orderService;
 
+
+    @GetMapping
+    @RequestMapping("/orders")
+    public String getOrdersList(Model model){
+        List<OrderDto> orders = orderService.getOrderDtos();
+        model.addAttribute("orders", orders);
+
+        return "/admin/orders";
+    }
     @PostMapping
     @RequestMapping("/add")
     public String addEbook(EbookDto ebookDto, @RequestParam("image") MultipartFile file) {
