@@ -14,7 +14,7 @@ public class OrderDto {
     private Long id;
     private User user;
     private BigDecimal totalCost;
-    private LocalDateTime orderTime;
+    private String orderTime;
     private List<Ebook> ebooks;
 
     @Override
