@@ -14,6 +14,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -34,17 +35,17 @@ public class EbookService {
 
     public void addEbook(EbookDto ebookDto, MultipartFile file) {
         Ebook ebook = new Ebook();
-        try{
-        ebook.setPurchaseCost(ebookDto.getPurchaseCost());
-        ebook.setTitle(ebookDto.getTitle());
-        ebook.setId(ebookDto.getId());
-        ebook.setAuthors(ebookDto.getAuthors());
-        ebook.setPublisher(ebookDto.getPublisher());
-        ebook.setImageName(ebookDto.getImageName());
-        ebook.setDescription(ebookDto.getDescription());
-        ebook.setGenre(Genre.valueOf(ebookDto.getGenre()));
-        ebook.setSellingPrice(ebookDto.getSellingPrice());
-        } catch (NullPointerException e){
+        try {
+            ebook.setPurchaseCost(ebookDto.getPurchaseCost());
+            ebook.setTitle(ebookDto.getTitle());
+            ebook.setId(ebookDto.getId());
+            ebook.setAuthors(ebookDto.getAuthors());
+            ebook.setPublisher(ebookDto.getPublisher());
+            ebook.setImageName(ebookDto.getImageName());
+            ebook.setDescription(ebookDto.getDescription());
+            ebook.setGenre(Genre.valueOf(ebookDto.getGenre()));
+            ebook.setSellingPrice(ebookDto.getSellingPrice());
+        } catch (NullPointerException e) {
             log.error("One of the required values is null.");
         }
 
@@ -53,7 +54,7 @@ public class EbookService {
     }
 
     public void coverUpload(MultipartFile file) {
-        Path img = Paths.get("src/.../img");
+        Path img = Paths.get("src/main/resources/static/img");
 
         // Check if the uploads directory exists, create it if not
         if (!Files.exists(img)) {
@@ -70,5 +71,30 @@ public class EbookService {
         } catch (IOException e) {
             log.error("Failed to upload cover image: " + e.getMessage());
         }
+    }
+
+    public Ebook editEbook(EbookDto ebookDto, Long ebookId) {
+        Ebook ebook = ebookRepository.findById(ebookId).orElseThrow(() -> new IllegalArgumentException(ebookId + ": there is no ebook with that ID in the database."));
+        ebook.setTitle(ebookDto.getTitle());
+        ebook.setAuthors(ebookDto.getAuthors());
+        ebook.setPublisher(ebookDto.getPublisher());
+        ebook.setDescription(ebookDto.getDescription());
+        ebook.setGenre(Genre.valueOf(ebookDto.getGenre()));
+        ebook.setSellingPrice(ebookDto.getSellingPrice());
+        ebook.setPurchaseCost(ebookDto.getPurchaseCost());
+        return ebook;
+    }
+
+    public void editEbookWithoutCover(EbookDto ebookDto, Long ebookId) {
+        ebookRepository.save(editEbook(ebookDto, ebookId));
+
+    }
+
+    public void editEbookWithCover(EbookDto ebookDto, Long ebookId, MultipartFile file) {
+        Ebook ebook = editEbook(ebookDto, ebookId);
+        ebook.setImageName(ebookDto.getImageName());
+        coverUpload(file);
+        ebookRepository.save(ebook);
+
     }
 }

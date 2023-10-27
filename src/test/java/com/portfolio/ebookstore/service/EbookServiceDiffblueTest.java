@@ -397,5 +397,40 @@ class EbookServiceDiffblueTest {
             mockFiles.verify(() -> Files.copy(Mockito.<InputStream>any(), Mockito.<Path>any(), isA(CopyOption[].class)));
         }
     }
+
+    /**
+     * Method under test: {@link EbookService#editEbook(EbookDto, Long)}
+     */
+    @Test
+    void testEditEbook() {
+        Optional<Ebook> emptyResult = Optional.empty();
+        when(ebookRepository.findById(Mockito.<Long>any())).thenReturn(emptyResult);
+        assertThrows(IllegalArgumentException.class, () -> ebookService.editEbook(new EbookDto(), 1L));
+        verify(ebookRepository).findById(Mockito.<Long>any());
+    }
+
+    /**
+     * Method under test: {@link EbookService#editEbookWithoutCover(EbookDto, Long)}
+     */
+    @Test
+    void testEditEbookWithoutCover() {
+        Optional<Ebook> emptyResult = Optional.empty();
+        when(ebookRepository.findById(Mockito.<Long>any())).thenReturn(emptyResult);
+        assertThrows(IllegalArgumentException.class, () -> ebookService.editEbookWithoutCover(new EbookDto(), 1L));
+        verify(ebookRepository).findById(Mockito.<Long>any());
+    }
+
+    /**
+     * Method under test: {@link EbookService#editEbookWithCover(EbookDto, Long, MultipartFile)}
+     */
+    @Test
+    void testEditEbookWithCover() throws IOException {
+        Optional<Ebook> emptyResult = Optional.empty();
+        when(ebookRepository.findById(Mockito.<Long>any())).thenReturn(emptyResult);
+        EbookDto ebookDto = new EbookDto();
+        assertThrows(IllegalArgumentException.class, () -> ebookService.editEbookWithCover(ebookDto, 1L,
+                new MockMultipartFile("Name", new ByteArrayInputStream("AXAXAXAX".getBytes("UTF-8")))));
+        verify(ebookRepository).findById(Mockito.<Long>any());
+    }
 }
 
