@@ -51,6 +51,12 @@ public class AdminController {
         model.addAttribute("ebooksDtos", ebooksDtos);
         return "/admin/ebooks";
     }
+    @PostMapping
+    @RequestMapping("/ebooks/delete/{ebookId}")
+    public String deleteEbook( @PathVariable Long ebookId) {
+       ebookService.deleteEbookFromDB(ebookId);
+        return "redirect:/admin/ebooks";
+    }
 
     @PostMapping
     @RequestMapping("/ebooks/edit/{ebookId}")

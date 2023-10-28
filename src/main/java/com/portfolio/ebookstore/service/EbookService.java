@@ -97,4 +97,8 @@ public class EbookService {
         ebookRepository.save(ebook);
 
     }
+
+    public void deleteEbookFromDB(Long ebookId) {
+        ebookRepository.deleteById(ebookId);
+    }
 }
