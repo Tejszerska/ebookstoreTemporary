@@ -37,10 +37,9 @@
 
                     <div>
                         <a th:href="@{/admin/ebooks/edit-view/__${ebook.id}__}"  style="width: 100%;" class="btn btn-success mb-3">Edit</a>
+                        <p th:text="${ebook.available} ? 'AVAILIBLE' : 'NOT IN SALE'" >
                     </div>
-                    <div>
-                        <a th:href="@{/admin/ebooks/delete/__${ebook.id}__}"  style="width: 100%;" class="btn btn-success mb-3">Delete TODO</a>
-                    </div>
+
 
                 </td>
                 <td th:text="${ebook.id}">id</td>

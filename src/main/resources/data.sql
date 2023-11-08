@@ -1,33 +1,33 @@
 -- Insert records into the Ebook table
-    INSERT INTO ebook (title, authors, publisher, image_name, description, genre, selling_price, purchase_cost)
-VALUES ('The Great Gatsby', 'F. Scott Fitzgerald', 'Scribner', 'great-gatsby.jpg', 'A classic novel about the American Dream.', 'FICTION', 12.99, 8.00);
+    INSERT INTO ebook (title, authors, publisher, image_name, description, genre, selling_price, purchase_cost, is_available)
+VALUES ('The Great Gatsby', 'F. Scott Fitzgerald', 'Scribner', 'great-gatsby.jpg', 'A classic novel about the American Dream.', 'FICTION', 12.99, 8.00, 1);
 
-INSERT INTO ebook (title, authors, publisher, image_name, description, genre, selling_price, purchase_cost)
-VALUES ('To Kill a Mockingbird', 'Harper Lee', 'J. B. Lippincott & Co.', 'to-kill-a-mockingbird.jpg', 'A story of racial injustice and moral growth.', 'FICTION', 11.95, 7.50);
+INSERT INTO ebook (title, authors, publisher, image_name, description, genre, selling_price, purchase_cost, is_available)
+VALUES ('To Kill a Mockingbird', 'Harper Lee', 'J. B. Lippincott & Co.', 'to-kill-a-mockingbird.jpg', 'A story of racial injustice and moral growth.', 'FICTION', 11.95, 7.50, 1);
 
-INSERT INTO ebook (title, authors, publisher, image_name, description, genre, selling_price, purchase_cost)
-VALUES ('1984', 'George Orwell', 'Secker & Warburg', '1984.jpg', 'A dystopian novel about totalitarianism.', 'SCIENCE_FICTION', 9.99, 6.00);
+INSERT INTO ebook (title, authors, publisher, image_name, description, genre, selling_price, purchase_cost, is_available)
+VALUES ('1984', 'George Orwell', 'Secker & Warburg', '1984.jpg', 'A dystopian novel about totalitarianism.', 'SCIENCE_FICTION', 9.99, 6.00, 1);
 
-INSERT INTO ebook (title, authors, publisher, image_name, description, genre, selling_price, purchase_cost)
-VALUES ('Pride and Prejudice', 'Jane Austen', 'T. Egerton, Whitehall', 'pride-prejudice.jpg', 'A classic romance novel.', 'ROMANCE', 10.50, 6.75);
+INSERT INTO ebook (title, authors, publisher, image_name, description, genre, selling_price, purchase_cost, is_available)
+VALUES ('Pride and Prejudice', 'Jane Austen', 'T. Egerton, Whitehall', 'pride-prejudice.jpg', 'A classic romance novel.', 'ROMANCE', 10.50, 6.75, 1);
 
-INSERT INTO ebook (title, authors, publisher, image_name, description, genre, selling_price, purchase_cost)
-VALUES ('The Catcher in the Rye', 'J.D. Salinger', 'Little, Brown and Company', 'catcher-rye.jpg', 'A coming-of-age novel.', 'FICTION', 13.75, 9.00);
+INSERT INTO ebook (title, authors, publisher, image_name, description, genre, selling_price, purchase_cost, is_available)
+VALUES ('The Catcher in the Rye', 'J.D. Salinger', 'Little, Brown and Company', 'catcher-rye.jpg', 'A coming-of-age novel.', 'FICTION', 13.75, 9.00, 1);
 
-INSERT INTO ebook (title, authors, publisher, image_name, description, genre, selling_price, purchase_cost)
-VALUES ('The Hobbit', 'J.R.R. Tolkien', 'George Allen & Unwin', 'hobbit.jpg', 'A fantasy adventure novel.', 'FANTASY', 14.99, 9.50);
+INSERT INTO ebook (title, authors, publisher, image_name, description, genre, selling_price, purchase_cost, is_available)
+VALUES ('The Hobbit', 'J.R.R. Tolkien', 'George Allen & Unwin', 'hobbit.jpg', 'A fantasy adventure novel.', 'FANTASY', 14.99, 9.50, 1);
 
-INSERT INTO ebook (title, authors, publisher, image_name, description, genre, selling_price, purchase_cost)
-VALUES ('The Da Vinci Code', 'Dan Brown', 'Doubleday', 'da-vinci-code.jpg', 'A mystery thriller.', 'MYSTERY', 12.25, 8.25);
+INSERT INTO ebook (title, authors, publisher, image_name, description, genre, selling_price, purchase_cost, is_available)
+VALUES ('The Da Vinci Code', 'Dan Brown', 'Doubleday', 'da-vinci-code.jpg', 'A mystery thriller.', 'MYSTERY', 12.25, 8.25, 1);
 
-INSERT INTO ebook (title, authors, publisher, image_name, description, genre, selling_price, purchase_cost)
-VALUES ('The Lord of the Rings', 'J.R.R. Tolkien', 'George Allen & Unwin', 'lord-of-the-rings.jpg', 'An epic fantasy trilogy.', 'FANTASY', 29.99, 20.00);
+INSERT INTO ebook (title, authors, publisher, image_name, description, genre, selling_price, purchase_cost, is_available)
+VALUES ('The Lord of the Rings', 'J.R.R. Tolkien', 'George Allen & Unwin', 'lord-of-the-rings.jpg', 'An epic fantasy trilogy.', 'FANTASY', 29.99, 20.00, 1);
 
-INSERT INTO ebook (title, authors, publisher, image_name, description, genre, selling_price, purchase_cost)
-VALUES ('Harry Potter and the Sorcerer''s Stone', 'J.K. Rowling', 'Bloomsbury', 'harry-potter.jpg', 'The first book in the Harry Potter series.', 'FANTASY', 9.95, 6.25);
+INSERT INTO ebook (title, authors, publisher, image_name, description, genre, selling_price, purchase_cost, is_available)
+VALUES ('Harry Potter and the Sorcerer''s Stone', 'J.K. Rowling', 'Bloomsbury', 'harry-potter.jpg', 'The first book in the Harry Potter series.', 'FANTASY', 9.95, 6.25, 1);
 
-INSERT INTO ebook (title, authors, publisher, image_name, description, genre, selling_price, purchase_cost)
-VALUES ('The Alchemist', 'Paulo Coelho', 'HarperCollins', 'alchemist.jpg', 'A philosophical novel about a shepherd''s journey.', 'FICTION', 11.50, 7.75);
+INSERT INTO ebook (title, authors, publisher, image_name, description, genre, selling_price, purchase_cost, is_available)
+VALUES ('The Alchemist', 'Paulo Coelho', 'HarperCollins', 'alchemist.jpg', 'A philosophical novel about a shepherd''s journey.', 'FICTION', 11.50, 7.75, 1);
 
 -- Insert records into the User table
 INSERT INTO User (email, password, role, name, surname, city, street, zip_code)

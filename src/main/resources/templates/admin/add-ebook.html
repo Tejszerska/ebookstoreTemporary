@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-   <link th:href="@{/bootstrap.css}" rel="stylesheet">
+    <title>BOOKSTORE - add a book</title>
+    <link th:href="@{/bootstrap.css}" rel="stylesheet">
     <link th:href="@{/style.css}" rel="stylesheet">
 
 </head>
@@ -13,6 +13,7 @@
 
 <div class="container" style="margin-top:100px;">
     <h2>New ebook adding</h2>
+    <h3>All the fields must be filled. You can edit them later.</h3>
     <div class="row">
         <form th:action="@{/admin/ebooks/add}" th:object="${newEbook}" method="post" enctype="multipart/form-data">
 
@@ -53,9 +54,17 @@
             </div>
 
             <div class="mb-3">
+                <label for="available" class="form-label">Available in store right now?</label>
+                <input type="checkbox"  th:field="${newEbook.available}" id="available" />
+            </div>
+
+            <div class="mb-3">
                 <input type="file" class="form-control" name="image" accept="image/*"/>
             </div>
+
             <button type="submit" class="btn btn-primary" style="width: 100%">Add</button>
+
+
         </form>
     </div>
 

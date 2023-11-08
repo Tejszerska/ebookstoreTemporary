@@ -5,25 +5,36 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
+import java.math.BigDecimal;
+
 @Entity
-@NoArgsConstructor
+@NoArgsConstructor(force = true)
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
 public class Ebook {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-//    @NotBlank
+    @NotBlank
     private String title;
-//    @NotBlank
+    @NotBlank
     private String authors;
+    @NotBlank
     private String publisher;
+    @NotBlank
     private String imageName;
+    @NotBlank
     private String description;
     @Enumerated(EnumType.STRING)
     private Genre genre;
-    private Float sellingPrice;
-//    @NotBlank
-    private Float purchaseCost;
+    @NonNull
+    private BigDecimal sellingPrice;
+    @NonNull
+    private BigDecimal purchaseCost;
+    @NonNull
+    private boolean isAvailable;
+
+
 }

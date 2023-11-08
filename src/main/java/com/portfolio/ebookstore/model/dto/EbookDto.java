@@ -4,14 +4,17 @@ import com.portfolio.ebookstore.model.enums.Genre;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class EbookDto {
     private Long id;
     private String title;
@@ -20,6 +23,7 @@ public class EbookDto {
     private String imageName;
     private String description;
     private String genre;
-    private Float sellingPrice;
-    private Float purchaseCost;
+    private BigDecimal sellingPrice;
+    private BigDecimal purchaseCost;
+    private boolean isAvailable;
 }

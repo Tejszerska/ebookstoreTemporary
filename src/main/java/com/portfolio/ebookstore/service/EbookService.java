@@ -4,15 +4,18 @@ import com.portfolio.ebookstore.entities.Ebook;
 import com.portfolio.ebookstore.model.dto.EbookDto;
 import com.portfolio.ebookstore.model.enums.Genre;
 import com.portfolio.ebookstore.repositories.EbookRepository;
+import com.portfolio.ebookstore.repositories.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 
 @Slf4j
@@ -20,17 +23,28 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EbookService {
     private final EbookRepository ebookRepository;
-
+    private final OrderRepository orderRepository;
 
     public List<EbookDto> getEbookDtos() {
         return ebookRepository.findAll().stream()
-                .map(e -> new EbookDto(e.getId(), e.getTitle(), e.getAuthors(), e.getPublisher(), e.getImageName(), e.getDescription(), e.getGenre().toString(), e.getSellingPrice(), e.getPurchaseCost()))
+                .map(e -> new EbookDto(e.getId(), e.getTitle(), e.getAuthors(), e.getPublisher(), e.getImageName(), e.getDescription(), e.getGenre().toString(), e.getSellingPrice(), e.getPurchaseCost(), e.isAvailable()))
                 .toList();
     }
 
+    public List<EbookDto> getAvailableEbookDtos() {
+       return getEbookDtos().stream().filter( e -> e.isAvailable()).toList();
+    }
+//    public EbookDto getAvailableEbookDtoById(Long ebookId){
+//        EbookDto ebookDto = getEbookDtoById(ebookId);
+//        if(ebookDto.isAvailable()){
+//            return ebookDto;
+//        }
+//    }
+
+
     public EbookDto getEbookDtoById(Long ebookId) {
         Ebook ebook = ebookRepository.findById(ebookId).orElseThrow(() -> new IllegalArgumentException(ebookId + ": there is no ebook with that ID in the database."));
-        return new EbookDto(ebook.getId(), ebook.getTitle(), ebook.getAuthors(), ebook.getPublisher(), ebook.getImageName(), ebook.getDescription(), ebook.getGenre().toString(), ebook.getSellingPrice(), ebook.getPurchaseCost());
+        return new EbookDto(ebook.getId(), ebook.getTitle(), ebook.getAuthors(), ebook.getPublisher(), ebook.getImageName(), ebook.getDescription(), ebook.getGenre().toString(), ebook.getSellingPrice(), ebook.getPurchaseCost(), ebook.isAvailable());
     }
 
     public void addEbook(EbookDto ebookDto, MultipartFile file) {
@@ -45,6 +59,7 @@ public class EbookService {
             ebook.setDescription(ebookDto.getDescription());
             ebook.setGenre(Genre.valueOf(ebookDto.getGenre()));
             ebook.setSellingPrice(ebookDto.getSellingPrice());
+            ebook.setAvailable(ebookDto.isAvailable());
         } catch (NullPointerException e) {
             log.error("One of the required values is null.");
         }
@@ -82,6 +97,7 @@ public class EbookService {
         ebook.setGenre(Genre.valueOf(ebookDto.getGenre()));
         ebook.setSellingPrice(ebookDto.getSellingPrice());
         ebook.setPurchaseCost(ebookDto.getPurchaseCost());
+        ebook.setAvailable(ebookDto.isAvailable());
         return ebook;
     }
 
@@ -98,7 +114,4 @@ public class EbookService {
 
     }
 
-    public void deleteEbookFromDB(Long ebookId) {
-        ebookRepository.deleteById(ebookId);
-    }
 }
