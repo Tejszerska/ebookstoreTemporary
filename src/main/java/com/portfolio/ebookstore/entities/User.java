@@ -21,7 +21,6 @@ public class User {
     private Long id;
     @Email
     private String email;
-    @NotBlank
     private String password;
     @Embedded
     private Address address;

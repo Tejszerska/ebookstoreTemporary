@@ -28,7 +28,7 @@ public class AdminController {
     @GetMapping
     @RequestMapping("/orders/{orderId}")
     public String purchaseDetails(Model model, @PathVariable Long orderId) {
-        OrderDto orderById = orderService.getOrderDtos().get(Math.toIntExact(orderId));
+        OrderDto orderById = orderService.getOrderById(orderId);
         model.addAttribute("orderById", orderById);
         List<Ebook> orderedEbooks = orderService.getEbooksFromPastOrders(orderById.getId());
         model.addAttribute("orderedEbooks", orderedEbooks);

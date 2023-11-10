@@ -1,5 +1,6 @@
 package com.portfolio.ebookstore.controller;
 
+import com.portfolio.ebookstore.model.ShoppingCart;
 import com.portfolio.ebookstore.model.dto.EbookDto;
 import com.portfolio.ebookstore.service.EbookService;
 import lombok.RequiredArgsConstructor;
@@ -18,15 +19,14 @@ import java.util.List;
 @RequestMapping("/ebookstore")
 public class MainViewController {
     private final EbookService ebookService;
+    private final ShoppingCart shoppingCart;
 
     @GetMapping
     public String ebook(Model model) {
         List<EbookDto> availableEbookDtosFromDb = ebookService.getAvailableEbookDtos();
         model.addAttribute("ebooks", availableEbookDtosFromDb);
-//        model.addAttribute("newEbook", new Ebook());  <- a co to? :D
-//        ODKOMENTOWAĆ PO IMPLEMENTACJI WÓZKA
-//        int cartSize = shoppingCart.getCartS+ize();
-//        model.addAttribute("cartSize", cartSize);
+        int cartSize = shoppingCart.getCartSize();
+        model.addAttribute("cartSize", cartSize);
         return "main/ebookstore";
     }
 
@@ -34,8 +34,8 @@ public class MainViewController {
     public String ebookDetails(Model model, @PathVariable Long ebookId) throws IllegalArgumentException {
         EbookDto ebookById = ebookService.getEbookDtoById(ebookId);
         model.addAttribute("ebookById", ebookById);
-//        int cartSize = shoppingCart.getCartSize();
-//        model.addAttribute("cartSize", cartSize);
+        int cartSize = shoppingCart.getCartSize();
+        model.addAttribute("cartSize", cartSize);
         return "main/ebook-details";
     }
 }

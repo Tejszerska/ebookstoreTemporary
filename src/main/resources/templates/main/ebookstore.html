@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link th:href="@{/bootstrap.css}" rel="stylesheet">
     <link th:href="@{/style.css}" rel="stylesheet">
-    <title>Welcome to  EBOOKSTORE</title>
+    <title>Welcome to EBOOKSTORE</title>
 </head>
 <body>
 <div th:insert="~{fragments/nav-bar::nav}"></div>
@@ -25,24 +25,23 @@
                         </a>
                         <div class="card-body">
                             <h5 class="card-title" th:text="${ebook.title}">Ebook's title</h5>
-                            <p style="display: inline" th:text="${ebook.sellingPrice}">Ebook's price </p> <span> zł </span></br>
-                            <a href="#" class="btn btn-primary">Add to cart</a>
-                            <a th:href="@{/ebookstore/details/__${ebook.id}__}" class="btn btn-primary">Details</a>
+                            <p style="display: inline" th:text="${ebook.sellingPrice}">Ebook's price </p>
+                            <span> zł </span><br>
+                            <div class="row">
+                            <a th:href="@{/ebookstore/details/__${ebook.id}__}" class="btn btn-primary col-6">Details</a>
+                            <form th:action="@{/ebookstore/cart/add}" method="post" class ="col-6">
+                                <input type="hidden" name="ebookId" th:value="${ebook.id}"/>
+                                <button type="submit" class="btn btn-primary ">Add to cart</button>
+                            </form>
+                            </div>
                         </div>
                     </div>
 
-                    <!--            <form th:action="@{/cart/add}" method="post">-->
-                    <!--              <input type="hidden" name="ebookId" th:value="${ebook.id}"/>-->
-                    <!--              <button type="submit" style="width: 100%;" class="btn btn-primary mb-3">Add to cart</button>-->
-                    <!--            </form>-->
-                    <!--            <a th:href="@{/ebooks/details/__${ebook.id}__}" style="width: 100%;"-->
-                    <!--               class="btn btn-primary mb-3">Details</a>-->
-
-                    <!--          </div>-->
                 </div>
             </div>
-        </th:block>
     </div>
+    </th:block>
+</div>
 </div>
 
 <!-- Optional JavaScript -->
