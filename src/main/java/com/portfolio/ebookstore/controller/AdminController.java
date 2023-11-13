@@ -3,9 +3,11 @@ package com.portfolio.ebookstore.controller;
 import com.portfolio.ebookstore.entities.Ebook;
 import com.portfolio.ebookstore.model.dto.EbookDto;
 import com.portfolio.ebookstore.model.dto.OrderDto;
+import com.portfolio.ebookstore.model.dto.UserDto;
 import com.portfolio.ebookstore.model.enums.Genre;
 import com.portfolio.ebookstore.service.EbookService;
 import com.portfolio.ebookstore.service.OrderService;
+import com.portfolio.ebookstore.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +24,25 @@ public class AdminController {
 
     private final EbookService ebookService;
     private final OrderService orderService;
+    private final UserService userService;
+    //Viewing users
+//    @GetMapping
+//    @RequestMapping("/user/{userId}")
+//    public String userDetails(Model model, @PathVariable Long userId) {
+//        UserDto userById = userService.getUserDtoById(userId);
+//        model.addAttribute("userById", userById);
+////        List<Ebook> orderedEbooks = orderService.getEbooksFromPastOrders(orderById.getId());
+////        model.addAttribute("orderedEbooks", orderedEbooks);
+//        return "/admin/order-details";
+//    }
 
+    @GetMapping
+    @RequestMapping("/users")
+    public String userList(Model model) {
+        List<UserDto> users = userService.getUserDtos();
+        model.addAttribute("users", users);
+        return "/admin/orders";
+    }
 
     //Viewing orders
     @GetMapping

@@ -98,6 +98,21 @@
                     </button>
                 </form>
             </div>
+        <div class="col-6" >
+            <div class="center">
+                <h2>Log in:</h2>
+                <form th:action="@{/}" method="post">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input id="username" type="text" class="form-control" name="username">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input id="password" type="password" class="form-control" name="password">
+                    </div>
+                    <button type="submit" style="width: 100%" class="btn btn-primary">Login</button>
+                </form>
         </div>
     </div>
 </div>

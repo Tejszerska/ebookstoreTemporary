@@ -29,4 +29,11 @@ public class User {
     private Role role;
     @OneToMany (mappedBy = "user")
     private List<Order> pastPurchases;
+
+    public User(String email, String password, Address address, Role role) {
+        this.email = email;
+        this.password = password;
+        this.address = address;
+        this.role = role;
+    }
 }

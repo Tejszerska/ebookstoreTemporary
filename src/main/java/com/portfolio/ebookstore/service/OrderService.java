@@ -1,9 +1,11 @@
 package com.portfolio.ebookstore.service;
 
+import com.portfolio.ebookstore.components.Mappers;
 import com.portfolio.ebookstore.entities.Ebook;
 import com.portfolio.ebookstore.entities.Order;
 import com.portfolio.ebookstore.entities.User;
 import com.portfolio.ebookstore.model.Address;
+
 import com.portfolio.ebookstore.model.ShoppingCart;
 import com.portfolio.ebookstore.model.dto.OrderDto;
 import com.portfolio.ebookstore.model.dto.UserOrderDto;
@@ -16,7 +18,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,12 +29,12 @@ public class OrderService {
     private final UserRepository userRepository;
     private final EbookRepository ebookRepository;
     private final ShoppingCart shoppingCart;
+    private final Mappers mapper;
 
 
     public List<OrderDto> getOrderDtos() {
         return orderRepository.findAll().stream()
-                .map(e -> new OrderDto(e.getId(), e.getUser(), e.getTotalCost(), e.getOrderTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")), e.getEbooks()))
-                .collect(Collectors.toList());
+                .map(mapper::mapOrderToDto).collect(Collectors.toList());
     }
 
     public List<Ebook> getEbooksFromPastOrders(Long id) {
@@ -68,6 +69,6 @@ public class OrderService {
     }
 
     public OrderDto getOrderById(Long orderId) {
-      return  orderRepository.findById(orderId).map( o-> new OrderDto(o.getId(), o.getUser(), o.getTotalCost(), o.getOrderTime().toString(), o.getEbooks())).get();
+      return  orderRepository.findById(orderId).map(mapper::mapOrderToDto).get();
     }
 }

@@ -14,16 +14,16 @@ import java.util.List;
 @Builder
 public class OrderDto {
     private Long id;
-    private User user;
+    private UserDto userDto;
     private BigDecimal totalCost;
     private String orderTime;
-    private List<Ebook> ebooks;
+    private List<EbookDto> ebooks;
 
     @Override
     public String toString() {
         return "PurchaseDto{" +
                 "id=" + id +
-                ", customer=" + user +
+                ", customer=" + userDto +
                 ", totalCost=" + totalCost +
                 ", orderDate=" + orderTime +
                 ", purchasedEbooks=" + ebooks +
