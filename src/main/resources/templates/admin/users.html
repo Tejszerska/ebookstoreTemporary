@@ -20,25 +20,23 @@
 <!--    </form>-->
 
 
-        <h2>List of recent purchases</h2>
+        <h2>List of recent users</h2>
    <table class="table table-striped">
         <thead>
         <tr>
             <th scope="col">ID</th>
-            <th scope="col">CUSTOMER'S EMAIL </th>
+            <th scope="col">USER'S EMAIL </th>
 
-            <th scope="col">TOTAL COST</th>
-            <th scope="col">DATE</th>
+            <th scope="col">ROLE</th>
         </tr>
         </thead>
         <tbody>
-        <th:block th:each="order: ${orders}">
+        <th:block th:each="user: ${users}">
         <tr>
-            <td><span th:text="${order.id}"> id </span></td>
-            <td><span th:text="${order.user.email}"> email </span></td>
-            <td><span th:text="${order.totalCost}"> cost </span></td>
-            <td><span th:text="${order.orderTime}"> date </span></td>
-            <td><a th:href="@{orders/__${order.id}__}"  style="width: 100%;" class="btn btn-primary mb-3">Details</a></td>
+            <td><span th:text="${user.id}"> id </span></td>
+            <td><span th:text="${user.email}"> email </span></td>
+            <td><span th:text="${user.role}"> role </span></td>
+            <td><a th:href="@{users/__${user.id}__}"  style="width: 100%;" class="btn btn-primary mb-3">Details</a></td>
         </tr>
         </th:block>
         </tbody>

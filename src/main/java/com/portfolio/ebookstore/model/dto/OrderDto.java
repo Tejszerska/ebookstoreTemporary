@@ -14,7 +14,7 @@ import java.util.List;
 @Builder
 public class OrderDto {
     private Long id;
-    private UserDto userDto;
+    private String userEmail;
     private BigDecimal totalCost;
     private String orderTime;
     private List<EbookDto> ebooks;
@@ -23,7 +23,7 @@ public class OrderDto {
     public String toString() {
         return "PurchaseDto{" +
                 "id=" + id +
-                ", customer=" + userDto +
+                ", customer=" + userEmail +
                 ", totalCost=" + totalCost +
                 ", orderDate=" + orderTime +
                 ", purchasedEbooks=" + ebooks +

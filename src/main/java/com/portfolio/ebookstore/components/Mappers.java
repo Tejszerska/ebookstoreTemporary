@@ -20,11 +20,8 @@ import java.util.stream.Collectors;
 @Component
 public class Mappers {
 //    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-private Set<User> mappedUsers = new HashSet<>();
-
 
     public UserDto mapUserToDto(User user) {
-
         return UserDto.builder()
                 .id(user.getId())
                 .email(user.getEmail())
@@ -43,23 +40,22 @@ private Set<User> mappedUsers = new HashSet<>();
                 .password(userDto.getPassword())
                 .address(new Address(userDto.getName(), userDto.getCity(), userDto.getSurname(), userDto.getStreet(), userDto.getZipCode()))
                 .role(Role.valueOf(userDto.getRole()))
-                .pastPurchases(userDto.getPastPurchases().stream().map(this::mapDtoToOrder).collect(Collectors.toList()))
+                .pastPurchases(userDto.getPastPurchases().stream().map(this::mapDtoToOrderWithoutUser).collect(Collectors.toList()))
                 .build();
     }
 
     public OrderDto mapOrderToDto(Order order){
        return OrderDto.builder().id(order
                 .getId())
-                .userDto(mapUserToDto(order.getUser()))
+                .userEmail(order.getUser().getEmail())
                 .totalCost(order.getTotalCost())
                 .orderTime(order.getOrderTime().toString())
                 .ebooks(order.getEbooks().stream().map(this::mapEbookToDto).collect(Collectors.toList()))
                 .build();
     }
-    private Order mapDtoToOrder(OrderDto orderDto) {
+    private Order mapDtoToOrderWithoutUser(OrderDto orderDto) {
         return Order.builder()
                 .id(orderDto.getId())
-                .user(mapDtoToUser(orderDto.getUserDto()))
                 .totalCost(orderDto.getTotalCost())
                 .orderTime(LocalDateTime.parse(orderDto.getOrderTime()))
                 .ebooks(orderDto.getEbooks().stream().map(this::mapDtoToEbook).collect(Collectors.toList()))

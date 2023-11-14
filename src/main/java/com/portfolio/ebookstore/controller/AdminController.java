@@ -41,7 +41,7 @@ public class AdminController {
     public String userList(Model model) {
         List<UserDto> users = userService.getUserDtos();
         model.addAttribute("users", users);
-        return "/admin/orders";
+        return "/admin/users";
     }
 
     //Viewing orders
