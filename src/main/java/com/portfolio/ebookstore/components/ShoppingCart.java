@@ -1,4 +1,4 @@
-package com.portfolio.ebookstore.model;
+package com.portfolio.ebookstore.components;
 
 import com.portfolio.ebookstore.model.dto.CartItemDto;
 import com.portfolio.ebookstore.model.dto.EbookDto;

@@ -6,7 +6,7 @@ import com.portfolio.ebookstore.entities.Order;
 import com.portfolio.ebookstore.entities.User;
 import com.portfolio.ebookstore.model.Address;
 
-import com.portfolio.ebookstore.model.ShoppingCart;
+import com.portfolio.ebookstore.components.ShoppingCart;
 import com.portfolio.ebookstore.model.dto.OrderDto;
 import com.portfolio.ebookstore.model.dto.UserOrderDto;
 import com.portfolio.ebookstore.model.enums.Role;

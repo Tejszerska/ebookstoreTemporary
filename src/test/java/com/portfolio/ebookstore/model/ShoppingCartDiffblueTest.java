@@ -7,6 +7,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import com.portfolio.ebookstore.components.ShoppingCart;
 import com.portfolio.ebookstore.model.dto.CartItemDto;
 import com.portfolio.ebookstore.model.dto.EbookDto;
 
@@ -27,7 +28,7 @@ class ShoppingCartDiffblueTest {
         //   Reason: R027 Missing beans when creating Spring context.
         //   Failed to create Spring context due to missing beans
         //   in the current Spring profile:
-        //       com.portfolio.ebookstore.model.ShoppingCart
+        //       com.portfolio.ebookstore.components.ShoppingCart
         //   See https://diff.blue/R027 to resolve this issue.
 
         ShoppingCart shoppingCart = new ShoppingCart();
@@ -62,7 +63,7 @@ class ShoppingCartDiffblueTest {
         //   Reason: R027 Missing beans when creating Spring context.
         //   Failed to create Spring context due to missing beans
         //   in the current Spring profile:
-        //       com.portfolio.ebookstore.model.ShoppingCart
+        //       com.portfolio.ebookstore.components.ShoppingCart
         //   See https://diff.blue/R027 to resolve this issue.
 
         ShoppingCart shoppingCart = new ShoppingCart();
@@ -99,7 +100,7 @@ class ShoppingCartDiffblueTest {
         //   Reason: R027 Missing beans when creating Spring context.
         //   Failed to create Spring context due to missing beans
         //   in the current Spring profile:
-        //       com.portfolio.ebookstore.model.ShoppingCart
+        //       com.portfolio.ebookstore.components.ShoppingCart
         //   See https://diff.blue/R027 to resolve this issue.
 
         ShoppingCart shoppingCart = new ShoppingCart();
@@ -136,7 +137,7 @@ class ShoppingCartDiffblueTest {
         //   Reason: R027 Missing beans when creating Spring context.
         //   Failed to create Spring context due to missing beans
         //   in the current Spring profile:
-        //       com.portfolio.ebookstore.model.ShoppingCart
+        //       com.portfolio.ebookstore.components.ShoppingCart
         //   See https://diff.blue/R027 to resolve this issue.
 
         ShoppingCart shoppingCart = new ShoppingCart();
@@ -165,7 +166,7 @@ class ShoppingCartDiffblueTest {
         //   Reason: R027 Missing beans when creating Spring context.
         //   Failed to create Spring context due to missing beans
         //   in the current Spring profile:
-        //       com.portfolio.ebookstore.model.ShoppingCart
+        //       com.portfolio.ebookstore.components.ShoppingCart
         //   See https://diff.blue/R027 to resolve this issue.
 
         ShoppingCart shoppingCart = new ShoppingCart();
@@ -202,7 +203,7 @@ class ShoppingCartDiffblueTest {
         //   Reason: R027 Missing beans when creating Spring context.
         //   Failed to create Spring context due to missing beans
         //   in the current Spring profile:
-        //       com.portfolio.ebookstore.model.ShoppingCart
+        //       com.portfolio.ebookstore.components.ShoppingCart
         //   See https://diff.blue/R027 to resolve this issue.
 
         assertEquals(0, (new ShoppingCart()).getCartSize());
@@ -218,7 +219,7 @@ class ShoppingCartDiffblueTest {
         //   Reason: R027 Missing beans when creating Spring context.
         //   Failed to create Spring context due to missing beans
         //   in the current Spring profile:
-        //       com.portfolio.ebookstore.model.ShoppingCart
+        //       com.portfolio.ebookstore.components.ShoppingCart
         //   See https://diff.blue/R027 to resolve this issue.
 
         ArrayList<CartItemDto> cartItems = new ArrayList<>();
@@ -239,7 +240,7 @@ class ShoppingCartDiffblueTest {
         //   Reason: R027 Missing beans when creating Spring context.
         //   Failed to create Spring context due to missing beans
         //   in the current Spring profile:
-        //       com.portfolio.ebookstore.model.ShoppingCart
+        //       com.portfolio.ebookstore.components.ShoppingCart
         //   See https://diff.blue/R027 to resolve this issue.
 
         CartItemDto cartItemDto = mock(CartItemDto.class);

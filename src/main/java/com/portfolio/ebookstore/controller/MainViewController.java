@@ -1,6 +1,6 @@
 package com.portfolio.ebookstore.controller;
 
-import com.portfolio.ebookstore.model.ShoppingCart;
+import com.portfolio.ebookstore.components.ShoppingCart;
 import com.portfolio.ebookstore.model.dto.EbookDto;
 import com.portfolio.ebookstore.service.EbookService;
 import lombok.RequiredArgsConstructor;
