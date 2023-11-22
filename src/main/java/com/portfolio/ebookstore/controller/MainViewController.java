@@ -30,6 +30,7 @@ public class MainViewController {
         return "main/ebookstore";
     }
 
+
     @RequestMapping("/details/{ebookId}")
     public String ebookDetails(Model model, @PathVariable Long ebookId) throws IllegalArgumentException {
         EbookDto ebookById = ebookService.getEbookDtoById(ebookId);
