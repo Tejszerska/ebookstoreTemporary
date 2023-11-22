@@ -24,7 +24,7 @@ public class SecurityConfiguration {
         http
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/api/v1/auth/**")
+                .requestMatchers("/ebookstore/**", "img/**", "bootstrap.css", "style.css")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
