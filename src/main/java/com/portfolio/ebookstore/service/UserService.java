@@ -4,7 +4,6 @@ import com.portfolio.ebookstore.components.Mappers;
 import com.portfolio.ebookstore.entities.User;
 import com.portfolio.ebookstore.model.Address;
 import com.portfolio.ebookstore.model.dto.UserDto;
-import com.portfolio.ebookstore.model.enums.Role;
 import com.portfolio.ebookstore.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,8 +22,8 @@ public class UserService {
 
     public void addUser(UserDto userDto) {
         User user = new User(userDto.getEmail(), userDto.getPassword(),
-                new Address(userDto.getName(), userDto.getSurname(), userDto.getCity(), userDto.getStreet(), userDto.getZipCode()),
-                Role.USER);
+                new Address(userDto.getName(), userDto.getSurname(), userDto.getCity(), userDto.getStreet(), userDto.getZipCode()));
+
         userRepository.save(user);
     }
 

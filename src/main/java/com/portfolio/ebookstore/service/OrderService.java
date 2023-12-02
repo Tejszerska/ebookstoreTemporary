@@ -9,7 +9,6 @@ import com.portfolio.ebookstore.model.Address;
 import com.portfolio.ebookstore.components.ShoppingCart;
 import com.portfolio.ebookstore.model.dto.OrderDto;
 import com.portfolio.ebookstore.model.dto.UserOrderDto;
-import com.portfolio.ebookstore.model.enums.Role;
 import com.portfolio.ebookstore.repositories.EbookRepository;
 import com.portfolio.ebookstore.repositories.OrderRepository;
 import com.portfolio.ebookstore.repositories.UserRepository;
@@ -46,7 +45,6 @@ public class OrderService {
     public void placeOrder(UserOrderDto userOrderDto) {
         User user = new User();
         user.setEmail(userOrderDto.getEmail());
-        user.setRole(Role.GUEST);
 
         user.setAddress(new Address(
                 userOrderDto.getName(), userOrderDto.getSurname(), userOrderDto.getStreet(), userOrderDto.getCity(), userOrderDto.getZipCode()

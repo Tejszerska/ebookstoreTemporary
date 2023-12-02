@@ -1,11 +1,8 @@
 package com.portfolio.ebookstore.entities;
 
 import com.portfolio.ebookstore.model.Address;
-import com.portfolio.ebookstore.model.enums.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.util.List;
@@ -24,16 +21,12 @@ public class User {
     private String password;
     @Embedded
     private Address address;
-    @NotNull
-    @Enumerated(EnumType.STRING)
-    private Role role;
     @OneToMany (mappedBy = "user")
     private List<Order> pastPurchases;
 
-    public User(String email, String password, Address address, Role role) {
+    public User(String email, String password, Address address) {
         this.email = email;
         this.password = password;
         this.address = address;
-        this.role = role;
     }
 }

@@ -8,13 +8,9 @@ import com.portfolio.ebookstore.model.dto.EbookDto;
 import com.portfolio.ebookstore.model.dto.OrderDto;
 import com.portfolio.ebookstore.model.dto.UserDto;
 import com.portfolio.ebookstore.model.enums.Genre;
-import com.portfolio.ebookstore.model.enums.Role;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Component
@@ -31,7 +27,6 @@ public class Mappers {
                 .city(user.getAddress().getCity())
                 .street(user.getAddress().getStreet())
                 .zipCode(user.getAddress().getZipCode())
-                .role(user.getRole().toString())
                 .pastPurchases(user.getPastPurchases().stream().map(this::mapOrderToDto).collect(Collectors.toList()))
                 .build();
     }
@@ -39,7 +34,6 @@ public class Mappers {
         return User.builder().email(userDto.getEmail())
                 .password(userDto.getPassword())
                 .address(new Address(userDto.getName(), userDto.getCity(), userDto.getSurname(), userDto.getStreet(), userDto.getZipCode()))
-                .role(Role.valueOf(userDto.getRole()))
                 .pastPurchases(userDto.getPastPurchases().stream().map(this::mapDtoToOrderWithoutUser).collect(Collectors.toList()))
                 .build();
     }
