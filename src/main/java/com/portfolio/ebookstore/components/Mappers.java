@@ -20,7 +20,7 @@ public class Mappers {
     public UserDto mapUserToDto(User user) {
         return UserDto.builder()
                 .id(user.getId())
-                .email(user.getEmail())
+                .email(user.getUsername())
                 .password(user.getPassword())
                 .name(user.getAddress().getName())
                 .surname(user.getAddress().getSurname())
@@ -41,7 +41,7 @@ public class Mappers {
     public OrderDto mapOrderToDto(Order order){
        return OrderDto.builder().id(order
                 .getId())
-                .userEmail(order.getUser().getEmail())
+                .userEmail(order.getUser().getUsername())
                 .totalCost(order.getTotalCost())
                 .orderTime(order.getOrderTime().toString())
                 .ebooks(order.getEbooks().stream().map(this::mapEbookToDto).collect(Collectors.toList()))

@@ -44,7 +44,7 @@ public class OrderService {
 
     public void placeOrder(UserOrderDto userOrderDto) {
         User user = new User();
-        user.setEmail(userOrderDto.getEmail());
+        user.setUsername(userOrderDto.getEmail());
 
         user.setAddress(new Address(
                 userOrderDto.getName(), userOrderDto.getSurname(), userOrderDto.getStreet(), userOrderDto.getCity(), userOrderDto.getZipCode()

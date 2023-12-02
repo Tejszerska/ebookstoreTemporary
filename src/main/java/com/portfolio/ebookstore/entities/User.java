@@ -17,7 +17,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Email
-    private String email;
+    @Column(name = "email")
+    private String username;
     private String password;
     @Embedded
     private Address address;
@@ -38,8 +39,8 @@ public class User {
     @Builder.Default
     private Boolean enabled = true;
 
-    public User(String email, String password, Address address) {
-        this.email = email;
+    public User(String username, String password, Address address) {
+        this.username = username;
         this.password = password;
         this.address = address;
     }
