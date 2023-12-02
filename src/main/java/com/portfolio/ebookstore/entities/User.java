@@ -23,6 +23,20 @@ public class User {
     private Address address;
     @OneToMany (mappedBy = "user")
     private List<Order> pastPurchases;
+    @Singular
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @JoinTable(name = "users_authorities", joinColumns = {
+            @JoinColumn(name = "USERS_ID", referencedColumnName = "ID") }, inverseJoinColumns = {
+            @JoinColumn(name = "AUTHORITIES_ID", referencedColumnName = "ID") })
+    private List<Authority> authorities;
+    @Builder.Default
+    private Boolean accountNonExpired = true;
+    @Builder.Default
+    private Boolean accountNonLocked = true;
+    @Builder.Default
+    private Boolean credentialsNonExpired = true;
+    @Builder.Default
+    private Boolean enabled = true;
 
     public User(String email, String password, Address address) {
         this.email = email;

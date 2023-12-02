@@ -1,3 +1,7 @@
+-- noinspection SqlDialectInspectionForFile
+
+-- noinspection SqlNoDataSourceInspectionForFile
+
 -- Insert records into the Ebook table
     INSERT INTO ebook (title, authors, publisher, image_name, description, genre, selling_price, purchase_cost, is_available)
 VALUES ('The Great Gatsby', 'F. Scott Fitzgerald', 'Scribner', 'great-gatsby.jpg', 'A classic novel about the American Dream.', 'FICTION', 12.99, 8.00, 1);
@@ -30,49 +34,49 @@ INSERT INTO ebook (title, authors, publisher, image_name, description, genre, se
 VALUES ('The Alchemist', 'Paulo Coelho', 'HarperCollins', 'alchemist.jpg', 'A philosophical novel about a shepherd''s journey.', 'FICTION', 11.50, 7.75, 1);
 
 -- Insert records into the User table
-INSERT INTO User (email, password, role, name, surname, city, street, zip_code)
+INSERT INTO User (email, password,  name, surname, city, street, zip_code)
 VALUES
-    ('user1@example.com', 'password1', 'USER', 'John', 'Hopkins', 'Boston', '789 Oak St', '54321');
+    ('user1@example.com', 'password1',  'John', 'Hopkins', 'Boston', '789 Oak St', '54321');
 
-INSERT INTO User (email, password, role, name, surname, city, street, zip_code)
+INSERT INTO User (email, password,  name, surname, city, street, zip_code)
 VALUES
-    ('user2@example.com', 'password1', 'USER', 'Kate', 'Hopkins', 'Boston', '789 Oak St', '54321');
+    ('user2@example.com', 'password1',  'Kate', 'Hopkins', 'Boston', '789 Oak St', '54321');
 
-INSERT INTO User (email, password, role, name, surname, city, street, zip_code)
+INSERT INTO User (email, password,  name, surname, city, street, zip_code)
 VALUES
-    ('user11@example.com', 'password2', 'USER', 'John', 'Smith', 'New York', '123 Main St', '12345');
+    ('user11@example.com', 'password2',  'John', 'Smith', 'New York', '123 Main St', '12345');
 
-INSERT INTO User (email, password, role, name, surname, city, street, zip_code)
+INSERT INTO User (email, password,  name, surname, city, street, zip_code)
 VALUES
-    ('user12@example.com', 'password3', 'USER', 'Emily', 'Johnson', 'Los Angeles', '456 Elm St', '67890');
+    ('user12@example.com', 'password3',  'Emily', 'Johnson', 'Los Angeles', '456 Elm St', '67890');
 
-INSERT INTO User (email, password, role, name, surname, city, street, zip_code)
+INSERT INTO User (email, password,  name, surname, city, street, zip_code)
 VALUES
-    ('user13@example.com', 'password4', 'USER', 'Michael', 'Davis', 'Chicago', '789 Maple St', '54321');
+    ('user13@example.com', 'password4',  'Michael', 'Davis', 'Chicago', '789 Maple St', '54321');
 
-INSERT INTO User (email, password, role, name, surname, city, street, zip_code)
+INSERT INTO User (email, password,  name, surname, city, street, zip_code)
 VALUES
-    ('user14@example.com', 'password5', 'USER', 'Sophia', 'Anderson', 'San Francisco', '1010 Pine St', '98765');
+    ('user14@example.com', 'password5', 'Sophia', 'Anderson', 'San Francisco', '1010 Pine St', '98765');
 
-INSERT INTO User (email, password, role, name, surname, city, street, zip_code)
+INSERT INTO User (email, password, name, surname, city, street, zip_code)
 VALUES
-    ('user15@example.com', 'password6', 'USER', 'Daniel', 'Martinez', 'Houston', '234 Oak Ave', '11111');
+    ('user15@example.com', 'password6',  'Daniel', 'Martinez', 'Houston', '234 Oak Ave', '11111');
 
-INSERT INTO User (email, password, role, name, surname, city, street, zip_code)
+INSERT INTO User (email, password,  name, surname, city, street, zip_code)
 VALUES
-    ('user16@example.com', 'password7', 'USER', 'Olivia', 'Lopez', 'Miami', '567 Palm Rd', '22222');
+    ('user16@example.com', 'password7',  'Olivia', 'Lopez', 'Miami', '567 Palm Rd', '22222');
 
-INSERT INTO User (email, password, role, name, surname, city, street, zip_code)
+INSERT INTO User (email, password,  name, surname, city, street, zip_code)
 VALUES
-    ('user17@example.com', 'password8', 'USER', 'William', 'Wilson', 'Dallas', '789 Cedar Ln', '33333');
+    ('user17@example.com', 'password8',  'William', 'Wilson', 'Dallas', '789 Cedar Ln', '33333');
 
-INSERT INTO User (email, password, role, name, surname, city, street, zip_code)
+INSERT INTO User (email, password,  name, surname, city, street, zip_code)
 VALUES
-    ('user18@example.com', 'password9', 'USER', 'Ava', 'Brown', 'Philadelphia', '890 Fir Blvd', '44444');
+    ('user18@example.com', 'password9',  'Ava', 'Brown', 'Philadelphia', '890 Fir Blvd', '44444');
 
-INSERT INTO User (email, password, role, name, surname, city, street, zip_code)
+INSERT INTO User (email, password, name, surname, city, street, zip_code)
 VALUES
-    ('user19@example.com', 'password10', 'USER', 'James', 'Lee', 'Seattle', '123 Spruce Dr', '55555');
+    ('user19@example.com', 'password10',  'James', 'Lee', 'Seattle', '123 Spruce Dr', '55555');
 
 
 -- Insert an order with a specific user, total cost, and order time
