@@ -22,7 +22,7 @@ public class MyUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
-        Optional<User> userByUsername = userRepository.findByEmail(email);
+        Optional<User> userByUsername = userRepository.findByUsername(email);
         if (!userByUsername.isPresent()) {
             log.error("Could not find user with that email: {}", email);
             throw new UsernameNotFoundException("Invalid credentials!");

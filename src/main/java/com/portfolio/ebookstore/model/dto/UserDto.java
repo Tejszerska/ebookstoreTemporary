@@ -10,14 +10,17 @@ import java.util.List;
 @Builder
 public class UserDto {
     private Long id;
-    private String email;
-    private String password;
+    private String username;
     private String name;
     private String surname;
     private String city;
     private String street;
     private String zipCode;
-    private String role;
     private List<OrderDto> pastPurchases;
+    private List<AuthorityDto> authorities;
+    private Boolean accountNonExpired;
+    private Boolean accountNonLocked;
+    private Boolean credentialsNonExpired;
+    private Boolean enabled;
 }
 

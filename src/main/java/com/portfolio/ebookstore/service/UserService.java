@@ -20,24 +20,35 @@ public class UserService {
     private final UserRepository userRepository;
     private final Mappers mapper;
 
-    public void addUser(UserDto userDto) {
-        User user = new User(userDto.getEmail(), userDto.getPassword(),
-                new Address(userDto.getName(), userDto.getSurname(), userDto.getCity(), userDto.getStreet(), userDto.getZipCode()));
-
-        userRepository.save(user);
+    public UserDto getLoginUser() {
+        return mapper.userEntityToDto(userRepository.findLoginUser().orElse(null));
     }
 
-    public UserDto getUserDtoById(Long userId) {
-        Optional<User> userOptional = userRepository.findById(userId);
-        if (userOptional.isPresent()) {
-            return userOptional.map(mapper::mapUserToDto).get();
-        } else {
-            log.error("User by id " + userId + " doesn't exist");
-            return null;
-        }
+    public UserDto getUserById(Long id) {
+        return mapper.userEntityToDto(userRepository.findById(id).orElse(null));
     }
 
-    public List<UserDto> getUserDtos() {
-        return userRepository.findAll().stream().map(mapper::mapUserToDto).collect(Collectors.toList());
+    public List<UserDto> getAllUsers() {
+        return mapper.userListEntityToDto(userRepository.findAll());
     }
+
+//    public void addUser(UserDto userDto) {
+//        User user = new User(userDto.getUsername(),
+//                new Address(userDto.getName(), userDto.getSurname(), userDto.getCity(), userDto.getStreet(), userDto.getZipCode()));
+//        userRepository.save(user);
+//    }
+
+//    public UserDto getUserDtoById(Long userId) {
+//        Optional<User> userOptional = userRepository.findById(userId);
+//        if (userOptional.isPresent()) {
+//            return userOptional.map(mapper::mapUserToDto).get();
+//        } else {
+//            log.error("User by id " + userId + " doesn't exist");
+//            return null;
+//        }
+//    }
+
+//    public List<UserDto> getUserDtos() {
+//        return userRepository.findAll().stream().map(mapper::mapUserToDto).collect(Collectors.toList());
+//    }
 }
